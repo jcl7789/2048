@@ -16,10 +16,10 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 
 public class InterfazUsuario {
-	private ManejadorDeTeclado;
 	private Tablero tablero;
 	private JFrame frame;
 	private JTextArea txtrHola;
@@ -27,29 +27,13 @@ public class InterfazUsuario {
 	private JLabel lblTituloJuego;
 	private JPanel panel_1;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InterfazUsuario window = new InterfazUsuario();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public InterfazUsuario(Tablero tablero) {
 		initialize();
-		this.tablero = tablero;
-		
+		this.setTablero(tablero);
 	}
 
 	/**
@@ -103,5 +87,22 @@ public class InterfazUsuario {
 		panel_1.setBounds(10, 135, 580, 580);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
+	}
+
+	public Tablero getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(Tablero tablero) {
+		this.tablero = tablero;
+	}
+	
+	public void tecladoListener (KeyListener kl) {
+        this.panel_1.requestFocus();
+        this.panel_1.addKeyListener(kl);
+    }
+
+	public void mostrarCartel() {
+		System.out.println("Puto El Que Lee");
 	}
 }

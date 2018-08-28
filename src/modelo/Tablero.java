@@ -271,7 +271,8 @@ public class Tablero {
 	public int valorAleatorio() {
 		return valoresAleatorios[random.nextInt(2)];
 	}
-
+	
+	// Si no quedan mas movimientos disponibles, fin de juego
 	public boolean seTermino() {
 		for (int[] fila : getTablero()) {
 			for (int ficha : fila) {
