@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InterfazUsuario {
-
+	private ManejadorDeTeclado;
 	private Tablero tablero;
 	private JFrame frame;
 	private JTextArea txtrHola;
@@ -49,6 +49,7 @@ public class InterfazUsuario {
 	public InterfazUsuario(Tablero tablero) {
 		initialize();
 		this.tablero = tablero;
+		
 	}
 
 	/**

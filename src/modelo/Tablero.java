@@ -8,7 +8,6 @@ public class Tablero {
 	private Random random;
 	private int puntaje;
 	private int[] valoresAleatorios = {2,4};
-	private boolean termino;
 	
 	public Tablero() {
 		this.tablero = new int[4][4];
