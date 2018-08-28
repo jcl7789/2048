@@ -46,8 +46,9 @@ public class InterfazUsuario {
 	/**
 	 * Create the application.
 	 */
-	public InterfazUsuario() {
+	public InterfazUsuario(Tablero tablero) {
 		initialize();
+		this.tablero = tablero;
 	}
 
 	/**
