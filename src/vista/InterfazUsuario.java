@@ -16,11 +16,11 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 
 public class InterfazUsuario {
 	private Tablero tablero;
+	
 	private JFrame frame;
 	private JTextArea txtrHola;
 	private JTextArea txtrRecord;
@@ -31,11 +31,20 @@ public class InterfazUsuario {
 	/**
 	 * Create the application.
 	 */
+	
+	
 	public InterfazUsuario(Tablero tablero) {
 		initialize();
 		this.setTablero(tablero);
 	}
-
+	
+	
+	// Jpanel0x0 
+	//habria que hardcodear cada pos de la matriz con un jpanel????
+	//p.setBackground(tablero.getColor(tablero.getValor(0,0)))); 
+	
+	
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -96,13 +105,8 @@ public class InterfazUsuario {
 	public void setTablero(Tablero tablero) {
 		this.tablero = tablero;
 	}
-	
-	public void tecladoListener (KeyListener kl) {
-        this.panel_1.requestFocus();
-        this.panel_1.addKeyListener(kl);
-    }
 
 	public void mostrarCartel() {
-		System.out.println("Puto El Que Lee");
+		System.out.println("Puto El Que Lee"+"Trava el que se ríe");
 	}
 }

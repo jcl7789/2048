@@ -16,13 +16,9 @@ public class ControladorJuego {
 		this.tablero = new Tablero();
 		this.interfaz = new InterfazUsuario(tablero);
 		this.manejadorDeTeclado = new ManejadorDeTeclado();
-		this.interfaz.tecladoListener( new ManejadorDeTeclado() );
-	}
-
-	public void jugar() {
 		
 	}
-	
+
     private void detectarFinal() {
         if ( this.tablero.seTermino() ) {
             this.interfaz.mostrarCartel();
@@ -38,6 +34,7 @@ public class ControladorJuego {
 		}
 		@Override
 		public void keyTyped(KeyEvent e) {
+			//se puede cambiar por un switch case
 
 			if (e.getKeyCode()== 37) {
 				//izquierda
@@ -48,14 +45,16 @@ public class ControladorJuego {
 				tablero.moverArriba();
 
 			} else if (e.getKeyChar()== 39) {
-//derecha	
+				//derecha	
 				tablero.moverDerecha();
 
 			} else if (e.getKeyChar()== 40) {
-//abajo	
+				//abajo	
 				tablero.moverAbajo();
+			} else if(e.getKeyChar() =='p') {
+				//pausa
+				//juego.pausa();
 			}
-			
 			detectarFinal(); // Detectar cuando no quedan movimientos disponibles
 		}
 		@Override
