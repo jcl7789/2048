@@ -12,7 +12,6 @@ public class Main {
 			public void run() {
 				try {
 					ControladorJuego cj = new ControladorJuego();
-					cj.jugar();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

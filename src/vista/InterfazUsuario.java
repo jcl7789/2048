@@ -19,8 +19,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InterfazUsuario {
-	private Tablero tablero;
 	
+	
+	private Tablero tablero;
 	private JFrame frame;
 	private JTextArea txtrHola;
 	private JTextArea txtrRecord;
@@ -37,13 +38,38 @@ public class InterfazUsuario {
 		initialize();
 		this.setTablero(tablero);
 	}
+
+
+	
+	///voy a hacer una matriz de panles o botones o lo que sea
+	//el panel 0,0 se corresponde con la pos 0,0 del tablero y asi sucesivamente
+	// en el campo de texto van a tener el valor (0,2,4,8...) que tenga su correspondiente pos del tablero
+	//cada panel vas a sacar el color tambien a traves del tablero.
+	//por lo que entendi no hace falta un keylistener en esta clase sino que con la de
+	//controladorJuego alcanza (la interfaz no debe tener logica)
 	
 	
-	// Jpanel0x0 
-	//habria que hardcodear cada pos de la matriz con un jpanel????
-	//p.setBackground(tablero.getColor(tablero.getValor(0,0)))); 
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+//	for (int i = 0; i< Paneles.length;i++) {
+//			for (int j = 0; j< paneles.length;j++) {
+//				int valor = this.tablero.getFicha[i][j];
+//				paneles[i][j] = new JPanel(valor);
+//				/// poner tamaño
+//				//poner ubicacion
+//				paneles[i][j].setBackground(valor);
+//			}
+//		}
+//	
+//	
 	
 	/**
 	 * Initialize the contents of the frame.

@@ -23,11 +23,13 @@ public class ControladorJuego {
         if ( this.tablero.seTermino() ) {
             this.interfaz.mostrarCartel();
         }
-    }
-	
+       
+    }   
+    
 	//clase privada que implementa una interfaz keylistener
-	//se fija que tecla se presiono y decide que hacer.
-	class ManejadorDeTeclado implements KeyListener {
+	//se fija qué tecla se presiono y luego le indica a las demas clases qué hacer.
+	
+    class ManejadorDeTeclado implements KeyListener {
 
 		public ManejadorDeTeclado() {
 
