@@ -20,7 +20,7 @@ import java.awt.event.ActionEvent;
 
 public class InterfazUsuario {
 	
-	
+	//JPanel jfichas[][] = new JPanel[4][4];
 	private Tablero tablero;
 	private JFrame frame;
 	private JTextArea txtrHola;
@@ -38,10 +38,28 @@ public class InterfazUsuario {
 		initialize();
 		this.setTablero(tablero);
 	}
-
-
+///Se actualiza solo el valor de los paneles? o queda ahi fijo???
+//revisar que clase me conviene usar, is panel boton o lo que sea	
 	
-	///voy a hacer una matriz de panles o botones o lo que sea
+//	int x = 0;
+//	int y = 0;
+//	for(int i = 0; i < jfichas.length; i++){
+//        for (int j =0; j<) {
+//			int valorFicha = this.tablero.getFicha(i,j);
+//        	jfichas[i][j] = new JPanel(valorFicha);
+//        	jfichas[i][j].setSize(algun tamaño);
+//			le cambio el color correspondiente	
+//						.setBackground(tablero.getColor(valorFicha)??
+//        	jfichas[i][j].setLocation(x,y)	
+//        	y+=25;
+//        }
+//        //cada vez que acomodo toda una fila, cambio el x para que la nueva fila
+//        //quede abajo y reseteo la pos orizontal
+//        y = 0;
+//        x+=100;
+//	}		
+	
+    ///voy a hacer una matriz de panles o botones o lo que sea
 	//el panel 0,0 se corresponde con la pos 0,0 del tablero y asi sucesivamente
 	// en el campo de texto van a tener el valor (0,2,4,8...) que tenga su correspondiente pos del tablero
 	//cada panel vas a sacar el color tambien a traves del tablero.
