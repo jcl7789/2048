@@ -40,22 +40,25 @@ public class ControladorJuego {
 
 			if (e.getKeyCode()== 37) {
 				//izquierda
-				tablero.moverIzquierda();
+				tablero.izquierda();
 
 			} else if (e.getKeyChar()== 38) {
 				//arriba
-				tablero.moverArriba();
+				tablero.arriba();
 
 			} else if (e.getKeyChar()== 39) {
 				//derecha	
-				tablero.moverDerecha();
+				tablero.derecha();
 
 			} else if (e.getKeyChar()== 40) {
 				//abajo	
-				tablero.moverAbajo();
+				tablero.abajo();
 			} else if(e.getKeyChar() =='p') {
 				//pausa
 				//juego.pausa();
+			}else if(e.getKeyChar() =='r') {
+				//reiniciar? o sino ponemos un boton para eso
+				//tablero.reiniciar();
 			}
 			detectarFinal(); // Detectar cuando no quedan movimientos disponibles
 		}

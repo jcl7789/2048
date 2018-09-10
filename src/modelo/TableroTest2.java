@@ -2,6 +2,7 @@ package modelo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class TableroTest2 {
@@ -9,13 +10,14 @@ class TableroTest2 {
 	// Testing OK. //
 	// Se recomienda probar los test's de movimientos de a uno, para no imprimir demas. //
 	
-	
+	@Before
 	private Tablero tableroNulo() {
 		Tablero tablero = new Tablero();
 		tablero.limpiarTablero();
 		return tablero;
 	}
 	
+
 	private Tablero tableroAzar() {
 		Tablero tablero = new Tablero();	// 2 fichas. //
 		for (int i = 1; i <= 8; i++) {		// 8 fichas. //
@@ -24,22 +26,21 @@ class TableroTest2 {
 		return tablero;						// Tablero con 10 fichas aleatorias. //
 	}
 	
-	@Test
-	void TableroVacio() {
-		Tablero tablero = tableroNulo();
-		tablero.fichaAleatoria();
-		tablero.fichaAleatoria();
-		tablero.limpiarTablero();
-		assertTrue(tablero.tableroVacio());
-	}
+	//en que momento se usaria el tablero nulo?
+//	@Test
+//	void TableroVacio() {
+//		Tablero tablero = tableroNulo();
+//		tablero.fichaAleatoria();
+//		tablero.fichaAleatoria();
+//		tablero.limpiarTablero();
+//		//que se esta testeando aca?
+//		assertTrue(tablero.tableroVacio());
+//	}
 	
-	/*@Test
+	@Test
 	void moverFilaIzquierda() {
-		Tablero tablero = tableroAzar();
-		System.out.println(tablero.toString());
-		tablero.izquierda();
-		System.out.println(tablero.toString());
-	}*/
+		assertTrue(2 == 2);
+	}
 	
 	/*@Test
 	void moverFilaDerecha() {
@@ -65,15 +66,15 @@ class TableroTest2 {
 		System.out.println(tablero.toString());
 	}*/
 	
-	@Test
-	void dosMovimientos() {
-		Tablero tablero = tableroAzar();
-		System.out.println(tablero.toString());
-		tablero.izquierda();
-		System.out.println(tablero.toString());
-		tablero.abajo();
-		System.out.println(tablero.toString());
-	}
+//	@Test
+//	void dosMovimientos() {
+//		Tablero tablero = tableroAzar();
+//		System.out.println(tablero.toString());
+//		tablero.izquierda();
+//		System.out.println(tablero.toString());
+//		tablero.abajo();
+//		System.out.println(tablero.toString());
+//	}
 
 	
 
