@@ -1,32 +1,22 @@
 package vista;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.SystemColor;
-import javax.swing.JTextField;
+
 
 import modelo.Tablero;
 
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class InterfazUsuario {
 	
-	//JPanel jfichas[][] = new JPanel[4][4];
+	private JLabel[][] jfichas = new JLabel[4][4];
 	private Tablero tablero;
 	private JFrame frame;
-	private JTextArea txtrHola;
-	private JTextArea txtrRecord;
-	private JLabel lblTituloJuego;
-	private JPanel panel_1;
+	private JTable table;
 	
 
 	/**
@@ -35,29 +25,14 @@ public class InterfazUsuario {
 	
 	
 	public InterfazUsuario(Tablero tablero) {
+		this.tablero = tablero;
 		initialize();
-		this.setTablero(tablero);
+		
 	}
-///Se actualiza solo el valor de los paneles? o queda ahi fijo???
-//revisar que clase me conviene usar, is panel boton o lo que sea	
+	///Se actualiza solo el valor de los paneles? o queda ahi fijo???
+	//revisar que clase me conviene usar, is panel boton o lo que sea	
 	
-//	int x = 0;
-//	int y = 0;
-//	for(int i = 0; i < jfichas.length; i++){
-//        for (int j =0; j<) {
-//			int valorFicha = this.tablero.getFicha(i,j);
-//        	jfichas[i][j] = new JPanel(valorFicha);
-//        	jfichas[i][j].setSize(algun tamaño);
-//			le cambio el color correspondiente	
-//						.setBackground(tablero.getColor(valorFicha)??
-//        	jfichas[i][j].setLocation(x,y)	
-//        	y+=25;
-//        }
-//        //cada vez que acomodo toda una fila, cambio el x para que la nueva fila
-//        //quede abajo y reseteo la pos orizontal
-//        y = 0;
-//        x+=100;
-//	}		
+
 	
     ///voy a hacer una matriz de panles o botones o lo que sea
 	//el panel 0,0 se corresponde con la pos 0,0 del tablero y asi sucesivamente
@@ -66,80 +41,68 @@ public class InterfazUsuario {
 	//por lo que entendi no hace falta un keylistener en esta clase sino que con la de
 	//controladorJuego alcanza (la interfaz no debe tener logica)
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	for (int i = 0; i< Paneles.length;i++) {
-//			for (int j = 0; j< paneles.length;j++) {
-//				int valor = this.tablero.getFicha[i][j];
-//				paneles[i][j] = new JPanel(valor);
-//				/// poner tamaño
-//				//poner ubicacion
-//				paneles[i][j].setBackground(valor);
-//			}
-//		}
-//	
-//	
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(250, 235, 215));
-		frame.setBounds(100, 100, 600, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(222, 184, 135));
-		panel.setBounds(10, 11, 564, 100);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
+		//se crea una matriz de fichas
+		for(int i = 0; i < jfichas.length; i++){
+	        for (int j =0; j<jfichas.length;j++) {
+				int valorFicha = this.tablero.getFicha(i,j);
+	        	JLabel aux = new JLabel();
+	        	aux.setBackground(this.tablero.getColor(valorFicha));
+	        	aux.setText(Integer.toString(valorFicha));
+	        	jfichas[i][j] = aux;
+	        }
+		}		
 		
-		txtrHola = new JTextArea();
-		txtrHola.setFont(new Font("Century Gothic", Font.BOLD, 18));
-		txtrHola.setForeground(new Color(255, 255, 255));
-		txtrHola.setBackground(new Color(222, 184, 135));
-		txtrHola.setText("PUNTAJE :");
-		txtrHola.setBounds(378, 52, 176, 34);
-		panel.add(txtrHola);
 		
-		txtrRecord = new JTextArea();
-		txtrRecord.setText("RECORD:");
-		txtrRecord.setForeground(Color.WHITE);
-		txtrRecord.setFont(new Font("Century Gothic", Font.BOLD, 18));
-		txtrRecord.setBackground(new Color(222, 184, 135));
-		txtrRecord.setBounds(378, 11, 176, 34);
-		panel.add(txtrRecord);
 		
-		JButton btnReiniciar = new JButton("Reiniciar");
-		btnReiniciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{jfichas[0][0],jfichas[0][1],jfichas[0][2],jfichas[0][3]},
+				{jfichas[1][0],jfichas[1][1],jfichas[1][2],jfichas[1][3]},
+				{jfichas[2][0],jfichas[2][1],jfichas[2][2],jfichas[2][3]},
+				{jfichas[3][0],jfichas[3][1],jfichas[3][2],jfichas[3][3]},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column"
+			}
+		) {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			/**
+			 * 
+			 */
+//			private static final long serialVersionUID = 1L; //que significa esto?
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
 			}
 		});
-		btnReiniciar.setFont(new Font("Century Gothic", Font.BOLD, 18));
-		btnReiniciar.setBounds(32, 56, 108, 26);
-		panel.add(btnReiniciar);
+		table.getColumnModel().getColumn(0).setPreferredWidth(70);
+		table.getColumnModel().getColumn(0).setMinWidth(70);
+		table.getColumnModel().getColumn(0).setMaxWidth(70);
+		table.getColumnModel().getColumn(1).setPreferredWidth(70);
+		table.getColumnModel().getColumn(1).setMinWidth(70);
+		table.getColumnModel().getColumn(1).setMaxWidth(70);
+		table.getColumnModel().getColumn(2).setPreferredWidth(70);
+		table.getColumnModel().getColumn(2).setMinWidth(70);
+		table.getColumnModel().getColumn(2).setMaxWidth(70);
 		
-		lblTituloJuego = new JLabel("2048 - UNGS\r\n");
-		lblTituloJuego.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 24));
-		lblTituloJuego.setBounds(32, 11, 157, 34);
-		panel.add(lblTituloJuego);
-		
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(222, 184, 135));
-		panel_1.setBounds(10, 135, 580, 580);
-		frame.getContentPane().add(panel_1);
-		panel_1.setLayout(null);
+		table.setColumnSelectionAllowed(true);
+		table.setBounds(10, 192, 420, 420);
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		frame.getContentPane().add(table);
 	}
 
 	public Tablero getTablero() {
@@ -151,6 +114,6 @@ public class InterfazUsuario {
 	}
 
 	public void mostrarCartel() {
-		System.out.println("Puto El Que Lee"+"Trava el que se ríe");
+		System.out.println("Soy Un Cartel (Porque es un cartel)");
 	}
 }

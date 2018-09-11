@@ -13,10 +13,9 @@ public class ControladorJuego {
 	private ManejadorDeTeclado manejadorDeTeclado;
 
 	public ControladorJuego() {
+		this.manejadorDeTeclado = new ManejadorDeTeclado();
 		this.tablero = new Tablero();
 		this.interfaz = new InterfazUsuario(tablero);
-		this.manejadorDeTeclado = new ManejadorDeTeclado();
-		
 	}
 
     private void detectarFinal() {

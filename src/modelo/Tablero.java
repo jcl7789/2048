@@ -15,30 +15,30 @@ public class Tablero {
 	private int[] valoresAleatorios = { 2, 4 };
 
 	public Tablero() {
-		this.colores = crearColores();
 		this.tablero = new int[4][4];
 		this.random = new Random();
 		this.puntaje = 0;
 		this.dimension = 4;
 		fichaAleatoria();
 		fichaAleatoria();
+		this.colores = crearColores();
 	}
 
 	private Map<Integer,Color> crearColores(){
-		Map<Integer,Color> mapaDeColores = new HashMap<Integer,Color>();
+		Map<Integer,Color> mapaDeColores = new HashMap<>();
 			//las key corresponden a las potencias de 2
-			colores.put(0,new Color (0,0,0));
-			colores.put(2,new Color (0,0,0));
-			colores.put(4,new Color (0,0,0));
-			colores.put(8,new Color (0,0,0));
-			colores.put(16,new Color (0,0,0));
-			colores.put(32,new Color (0,0,0));
-			colores.put(64,new Color (0,0,0));
-			colores.put(128,new Color (0,0,0));
-			colores.put(256,new Color (0,0,0));
-			colores.put(512,new Color (0,0,0));
-			colores.put(1024,new Color (0,0,0));
-			colores.put(2048,new Color (0,0,0));	
+			mapaDeColores.put(Integer.parseInt("0"),new Color (247, 249, 249));
+			mapaDeColores.put(Integer.parseInt("2"),new Color (215, 219, 221));
+			mapaDeColores.put(Integer.parseInt("4"),new Color (229, 152, 102));
+			mapaDeColores.put(Integer.parseInt("8"),new Color (248, 196, 113));
+			mapaDeColores.put(Integer.parseInt("16"),new Color (247, 220, 111));
+			mapaDeColores.put(Integer.parseInt("32"),new Color (130, 224, 170));
+			mapaDeColores.put(Integer.parseInt("64"),new Color (118, 215, 196));
+			mapaDeColores.put(Integer.parseInt("128"),new Color (133, 193, 233));
+			mapaDeColores.put(Integer.parseInt("256"),new Color (165, 105, 189));
+			mapaDeColores.put(Integer.parseInt("512"),new Color (192, 57, 43));
+			mapaDeColores.put(Integer.parseInt("1024"),new Color (242, 215, 213));
+			mapaDeColores.put(Integer.parseInt("2048"),new Color (241, 196, 15));	
 		
 			return mapaDeColores;	
 	}

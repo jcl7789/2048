@@ -11,7 +11,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ControladorJuego cj = new ControladorJuego();
+					ControladorJuego nuevoJuego = new ControladorJuego();	
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
