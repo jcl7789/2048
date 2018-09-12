@@ -2,7 +2,7 @@ package modelo;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-
+ 
 public class TableroTest {
 		
 		// El tablero se inicia con dos fichas aleatorias, modificada en el constructor del tablero. //

@@ -6,27 +6,47 @@ import javax.swing.JFrame;
 import modelo.Tablero;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+
 import javax.swing.JLabel;
-import javax.swing.JTable;
+import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
+
 
 public class InterfazUsuario {
 	
 	private JLabel[][] jfichas = new JLabel[4][4];
 	private Tablero tablero;
 	private JFrame frame;
-	private JTable table;
+//	private JTable table;
 	
 
 	/**
 	 * Create the application.
 	 */
 	
+	public static void main(String[] args) {
+		//Lo genera automaticamente el Windows Builder
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					InterfazUsuario interfazUsuario = new InterfazUsuario(new Tablero());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	
+	
 	
 	public InterfazUsuario(Tablero tablero) {
 		this.tablero = tablero;
 		initialize();
+		
 		
 	}
 	///Se actualiza solo el valor de los paneles? o queda ahi fijo???
@@ -47,62 +67,35 @@ public class InterfazUsuario {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setMinimumSize(new Dimension(460, 650));
 		frame.getContentPane().setLayout(null);
 		
+		int posY = 100;
+		int ancho = 100;
+		int alto = 100;
+		int espacio = 2;
 		//se crea una matriz de fichas
 		for(int i = 0; i < jfichas.length; i++){
-	        for (int j =0; j<jfichas.length;j++) {
+			int posX = 20;
+			posY+=alto+espacio;
+			for (int j = 0; j<jfichas.length;j++) {
 				int valorFicha = this.tablero.getFicha(i,j);
 	        	JLabel aux = new JLabel();
 	        	aux.setBackground(this.tablero.getColor(valorFicha));
 	        	aux.setText(Integer.toString(valorFicha));
+	        	aux.setBounds(posX, posY, ancho, alto);
+	        	aux.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 	        	jfichas[i][j] = aux;
-	        }
+	        	posX+=ancho+espacio;
+	        	
+	        	frame.getContentPane().add(aux);
+			}
 		}		
 		
 		
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{jfichas[0][0],jfichas[0][1],jfichas[0][2],jfichas[0][3]},
-				{jfichas[1][0],jfichas[1][1],jfichas[1][2],jfichas[1][3]},
-				{jfichas[2][0],jfichas[2][1],jfichas[2][2],jfichas[2][3]},
-				{jfichas[3][0],jfichas[3][1],jfichas[3][2],jfichas[3][3]},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column"
-			}
-		) {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			/**
-			 * 
-			 */
-//			private static final long serialVersionUID = 1L; //que significa esto?
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(70);
-		table.getColumnModel().getColumn(0).setMinWidth(70);
-		table.getColumnModel().getColumn(0).setMaxWidth(70);
-		table.getColumnModel().getColumn(1).setPreferredWidth(70);
-		table.getColumnModel().getColumn(1).setMinWidth(70);
-		table.getColumnModel().getColumn(1).setMaxWidth(70);
-		table.getColumnModel().getColumn(2).setPreferredWidth(70);
-		table.getColumnModel().getColumn(2).setMinWidth(70);
-		table.getColumnModel().getColumn(2).setMaxWidth(70);
 		
-		table.setColumnSelectionAllowed(true);
-		table.setBounds(10, 192, 420, 420);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		frame.getContentPane().add(table);
+		frame.setVisible(true);
 	}
 
 	public Tablero getTablero() {

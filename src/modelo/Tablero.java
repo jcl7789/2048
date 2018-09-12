@@ -13,7 +13,7 @@ public class Tablero {
 	private int puntaje;
 	private int dimension;
 	private int[] valoresAleatorios = { 2, 4 };
-
+ 
 	public Tablero() {
 		this.tablero = new int[4][4];
 		this.random = new Random();

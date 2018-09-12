@@ -11,7 +11,7 @@ public class ControladorJuego {
 	private Tablero tablero;
 	private InterfazUsuario interfaz;	
 	private ManejadorDeTeclado manejadorDeTeclado;
-
+ 
 	public ControladorJuego() {
 		this.manejadorDeTeclado = new ManejadorDeTeclado();
 		this.tablero = new Tablero();
