@@ -2,7 +2,8 @@ package main;
 
 import java.awt.EventQueue;
 
-import controlador.ControladorJuego;
+import modelo.Tablero;
+import vista.InterfazUsuario;
 
 public class Main { 
 
@@ -12,12 +13,12 @@ public class Main {
 			@Override
 			public void run() {
 				try {
-					ControladorJuego nuevoJuego = new ControladorJuego();	
+					InterfazUsuario juego = new InterfazUsuario();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});
+		}); 
 	}
 
 }

@@ -19,11 +19,11 @@ public class Tablero {
 		this.random = new Random();
 		this.puntaje = 0;
 		this.dimension = 4;
-		fichaAleatoria();
+		fichaAleatoria(); 
 		fichaAleatoria();
 		this.colores = crearColores();
 	}
-
+ 
 	private Map<Integer,Color> crearColores(){
 		Map<Integer,Color> mapaDeColores = new HashMap<>();
 			//las key corresponden a las potencias de 2
@@ -57,6 +57,13 @@ public class Tablero {
 
 	public int getFicha(int fila, int columna) {
 		return this.getTablero()[fila][columna];
+	}
+	public String getFichaString (int fila, int columna) {
+		if(this.getTablero()[fila][columna] == 0) {
+			return "";
+		}
+		//parseo a string el valor
+		return this.getTablero()[fila][columna]+"";
 	}
 
 	public int getDimension() {

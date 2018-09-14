@@ -22,7 +22,7 @@ class TableroTest2 {
 		Tablero tablero = new Tablero();	// 2 fichas. //
 		for (int i = 1; i <= 8; i++) {		// 8 fichas. //
 			tablero.fichaAleatoria();
-		}
+		} 
 		return tablero;						// Tablero con 10 fichas aleatorias. //
 	}
 	
